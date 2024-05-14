@@ -34,7 +34,7 @@ const deployGreyHat: DeployFunction = async function (hre: HardhatRuntimeEnviron
 
   // Get the deployed contract to interact with it after deploying.
   const greyHat = await hre.ethers.getContract<Contract>("GreyHat", deployer);
-  console.log("👋 Initial greeting:", await greyHat.address);
+  console.log("👋 Initial greeting:", await greyHat.target);
 };
 
 export default deployGreyHat;

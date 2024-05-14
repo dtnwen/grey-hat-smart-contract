@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/GreyHat.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.8.0 <0.9.0;\n\ncontract GreyHat {\n\tconstructor() {}\n\n\t// protocols => exploiter\n\tmapping(address => bool) public implemented;\n\tuint256 bountyPortion = 15;\n\n\tfunction implement() public {\n\t\trequire(implemented[msg.sender] == false, \"Already implemented\");\n\t\timplemented[msg.sender] = true;\n\t}\n\n\tfunction depositExploitedFund(address protocol) public payable {\n\t\trequire(\n\t\t\timplemented[protocol] == true,\n\t\t\t\"Protocol hasn't implement contract\"\n\t\t);\n\t\tuint256 bounty = bountyCalculate(msg.value);\n\n\t\t_returnProtocol(protocol, msg.value, bounty);\n\t\t_rewardBounty(bounty);\n\t}\n\n\tfunction bountyCalculate(uint256 fund) public view returns (uint256) {\n\t\treturn (fund * bountyPortion) / 100;\n\t}\n\n\tfunction _rewardBounty(uint256 fund) private {\n\t\t(bool s, ) = msg.sender.call{ value: fund }(\"\");\n\t\trequire(s, \"Reward bounty failed\");\n\t}\n\n\tfunction _returnProtocol(\n\t\taddress protocol,\n\t\tuint256 fund,\n\t\tuint256 bounty\n\t) private {\n\t\tuint256 fundReturn = fund - bounty;\n\t\t(bool s, ) = payable(protocol).call{ value: fundReturn }(\"\");\n\t\trequire(s, \"Return protocol failed\");\n\t}\n\n\t// function bargain() returns () {}\n\t// I'm not sure this function should be implemented, yet\n\n\tfunction invite(address recipient, bytes calldata message) public payable {\n\t\t(bool s, ) = payable(recipient).call{ value: msg.value }(message);\n\t\trequire(s, \"Send messages failed\");\n\t}\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

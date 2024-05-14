@@ -1,11 +1,17 @@
-// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.0 <0.9.0;
 
 contract GreyHat {
 	constructor() {}
 
 	// protocols => exploiter
+	struct GoodHacker {
+		address exploiter;
+		uint256 amount;
+		bool returned;
+	}
 	mapping(address => bool) public implemented;
+	mapping (address => GoodHacker) track;
 	uint256 bountyPortion = 15;
 
 	function implement() public {
@@ -22,6 +28,8 @@ contract GreyHat {
 
 		_returnProtocol(protocol, msg.value, bounty);
 		_rewardBounty(bounty);
+		
+		track[protocol] = GoodHacker(msg.sender, msg.value, true);
 	}
 
 	function bountyCalculate(uint256 fund) public view returns (uint256) {

@@ -54,8 +54,8 @@ contract GreyHat {
 	// function bargain() returns () {}
 	// I'm not sure this function should be implemented, yet
 
-	function invite(address recipient, bytes calldata message) public payable {
-		(bool s, ) = payable(recipient).call{ value: msg.value }(message);
-		require(s, "Send messages failed");
-	}
+	// function invite(address recipient, bytes calldata message) public payable {
+	// 	(bool s, ) = payable(recipient).call{ value: msg.value }(message);
+	// 	require(s, "Send messages failed");
+	// }
 }

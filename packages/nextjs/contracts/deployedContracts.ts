@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     GreyHat: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
       abi: [
         {
           inputs: [],
@@ -88,6 +88,35 @@ const deployedContracts = {
           name: "invite",
           outputs: [],
           stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "track",
+          outputs: [
+            {
+              internalType: "address",
+              name: "exploiter",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "returned",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
       ],
@@ -96,7 +125,7 @@ const deployedContracts = {
   },
   11155111: {
     GreyHat: {
-      address: "0x59876859a1811709BECb6b1d920A243A1ba75d61",
+      address: "0x9D1C9fe34143EB7Ed2F23568aCCB5cF753B635Af",
       abi: [
         {
           inputs: [],
@@ -165,18 +194,29 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "recipient",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "track",
+          outputs: [
+            {
+              internalType: "address",
+              name: "exploiter",
               type: "address",
             },
             {
-              internalType: "bytes",
-              name: "message",
-              type: "bytes",
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "returned",
+              type: "bool",
             },
           ],
-          name: "invite",
-          outputs: [],
-          stateMutability: "payable",
+          stateMutability: "view",
           type: "function",
         },
       ],

@@ -11,7 +11,7 @@ contract GreyHat {
 		bool returned;
 	}
 	mapping(address => bool) public implemented;
-	mapping (address => GoodHacker) track;
+	mapping (address => GoodHacker) public track;
 	uint256 bountyPortion = 15;
 
 	function implement() public {

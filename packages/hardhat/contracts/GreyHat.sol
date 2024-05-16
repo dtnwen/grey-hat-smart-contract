@@ -2,16 +2,14 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 contract GreyHat {
-	constructor() {}
+	event ReturnFund(
+		address indexed exploiter,
+		address indexed victim,
+		uint256 amount,
+		uint256 bounty
+	);
 
-	// protocols => exploiter
-	struct GoodHacker {
-		address exploiter;
-		uint256 amount;
-		bool returned;
-	}
 	mapping(address => bool) public implemented;
-	mapping(address => GoodHacker) public track;
 	uint256 bountyPortion = 15;
 
 	function implement() public {
@@ -19,18 +17,18 @@ contract GreyHat {
 		implemented[msg.sender] = true;
 	}
 
-	function depositExploitedFund(address protocol) public payable {
+	function depositExploitedFund(address victim) public payable {
 		require(
-			implemented[protocol] == true,
-			"Protocol hasn't implement contract"
+			implemented[victim] == true,
+			"Victim hasn't implement contract"
 		);
 		require(msg.value > 0, "Can't deposit 0");
 		uint256 bounty = bountyCalculate(msg.value);
 
-		_returnProtocol(protocol, msg.value, bounty);
+		_returnVictim(victim, msg.value, bounty);
 		_rewardBounty(bounty);
 
-		track[protocol] = GoodHacker(msg.sender, msg.value, true);
+		emit ReturnFund(msg.sender, victim, msg.value, bounty);
 	}
 
 	function bountyCalculate(uint256 fund) public view returns (uint256) {
@@ -42,21 +40,16 @@ contract GreyHat {
 		require(s, "Reward bounty failed");
 	}
 
-	function _returnProtocol(
-		address protocol,
+	function _returnVictim(
+		address victim,
 		uint256 fund,
 		uint256 bounty
 	) private {
 		uint256 fundReturn = fund - bounty;
-		(bool s, ) = payable(protocol).call{ value: fundReturn }("");
-		require(s, "Return protocol failed");
+		(bool s, ) = payable(victim).call{ value: fundReturn }("");
+		require(s, "Return victim failed");
 	}
 
 	// function bargain() returns () {}
 	// I'm not sure this function should be implemented, yet
-
-	// function invite(address recipient, bytes calldata message) public payable {
-	// 	(bool s, ) = payable(recipient).call{ value: msg.value }(message);
-	// 	require(s, "Send messages failed");
-	// }
 }

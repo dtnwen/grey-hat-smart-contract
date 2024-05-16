@@ -1,10 +1,36 @@
 {
-  "address": "0x3384371AF33358C6120F5594EBD22202E7BA845f",
+  "address": "0xA2C67B86934c9a76a11B3285Cf9E4A5056EBE07E",
   "abi": [
     {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "exploiter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "victim",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "bounty",
+          "type": "uint256"
+        }
+      ],
+      "name": "ReturnFund",
+      "type": "event"
     },
     {
       "inputs": [
@@ -29,7 +55,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "protocol",
+          "name": "victim",
           "type": "address"
         }
       ],
@@ -63,59 +89,30 @@
       ],
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "track",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "exploiter",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "returned",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
     }
   ],
-  "transactionHash": "0xb052bdc9c5f9f30e3d7a6422d85122b013c6538a46f7c98d9d8d49b490e0bb66",
+  "transactionHash": "0x08843ba6527e66812b66d37f1341f24236d7bde016303d96ad8a3de9a6fe353c",
   "receipt": {
     "to": null,
     "from": "0x9D458a0c24A283Ee7a3db8a65BEE39F0Df98048F",
-    "contractAddress": "0x3384371AF33358C6120F5594EBD22202E7BA845f",
-    "transactionIndex": 120,
-    "gasUsed": "373130",
+    "contractAddress": "0xA2C67B86934c9a76a11B3285Cf9E4A5056EBE07E",
+    "transactionIndex": 44,
+    "gasUsed": "336085",
     "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "blockHash": "0xfca9ae5bc527bfe8cda8225337d6c01435c14613ecc3ebffc11cd4d5b0804666",
-    "transactionHash": "0xb052bdc9c5f9f30e3d7a6422d85122b013c6538a46f7c98d9d8d49b490e0bb66",
+    "blockHash": "0x105b6e95e75d0ab232bd64a1ec5823d43cf020b395d3c8834005e0e4538c5919",
+    "transactionHash": "0x08843ba6527e66812b66d37f1341f24236d7bde016303d96ad8a3de9a6fe353c",
     "logs": [],
-    "blockNumber": 5914153,
-    "cumulativeGasUsed": "17154713",
+    "blockNumber": 5914834,
+    "cumulativeGasUsed": "5487048",
     "status": 1,
     "byzantium": true
   },
   "args": [],
-  "numDeployments": 4,
-  "solcInputHash": "a6555d847dd636849ed94b1930858aad",
-  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fund\",\"type\":\"uint256\"}],\"name\":\"bountyCalculate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"protocol\",\"type\":\"address\"}],\"name\":\"depositExploitedFund\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"implemented\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"track\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"exploiter\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"returned\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/GreyHat.sol\":\"GreyHat\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/GreyHat.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity >=0.8.0 <0.9.0;\\r\\n\\r\\ncontract GreyHat {\\r\\n\\tconstructor() {}\\r\\n\\r\\n\\t// protocols => exploiter\\r\\n\\tstruct GoodHacker {\\r\\n\\t\\taddress exploiter;\\r\\n\\t\\tuint256 amount;\\r\\n\\t\\tbool returned;\\r\\n\\t}\\r\\n\\tmapping(address => bool) public implemented;\\r\\n\\tmapping(address => GoodHacker) public track;\\r\\n\\tuint256 bountyPortion = 15;\\r\\n\\r\\n\\tfunction implement() public {\\r\\n\\t\\trequire(implemented[msg.sender] == false, \\\"Already implemented\\\");\\r\\n\\t\\timplemented[msg.sender] = true;\\r\\n\\t}\\r\\n\\r\\n\\tfunction depositExploitedFund(address protocol) public payable {\\r\\n\\t\\trequire(\\r\\n\\t\\t\\timplemented[protocol] == true,\\r\\n\\t\\t\\t\\\"Protocol hasn't implement contract\\\"\\r\\n\\t\\t);\\r\\n\\t\\trequire(msg.value > 0, \\\"Can't deposit 0\\\");\\r\\n\\t\\tuint256 bounty = bountyCalculate(msg.value);\\r\\n\\r\\n\\t\\t_returnProtocol(protocol, msg.value, bounty);\\r\\n\\t\\t_rewardBounty(bounty);\\r\\n\\r\\n\\t\\ttrack[protocol] = GoodHacker(msg.sender, msg.value, true);\\r\\n\\t}\\r\\n\\r\\n\\tfunction bountyCalculate(uint256 fund) public view returns (uint256) {\\r\\n\\t\\treturn (fund * bountyPortion) / 100;\\r\\n\\t}\\r\\n\\r\\n\\tfunction _rewardBounty(uint256 fund) private {\\r\\n\\t\\t(bool s, ) = msg.sender.call{ value: fund }(\\\"\\\");\\r\\n\\t\\trequire(s, \\\"Reward bounty failed\\\");\\r\\n\\t}\\r\\n\\r\\n\\tfunction _returnProtocol(\\r\\n\\t\\taddress protocol,\\r\\n\\t\\tuint256 fund,\\r\\n\\t\\tuint256 bounty\\r\\n\\t) private {\\r\\n\\t\\tuint256 fundReturn = fund - bounty;\\r\\n\\t\\t(bool s, ) = payable(protocol).call{ value: fundReturn }(\\\"\\\");\\r\\n\\t\\trequire(s, \\\"Return protocol failed\\\");\\r\\n\\t}\\r\\n\\r\\n\\t// function bargain() returns () {}\\r\\n\\t// I'm not sure this function should be implemented, yet\\r\\n\\r\\n\\t// function invite(address recipient, bytes calldata message) public payable {\\r\\n\\t// \\t(bool s, ) = payable(recipient).call{ value: msg.value }(message);\\r\\n\\t// \\trequire(s, \\\"Send messages failed\\\");\\r\\n\\t// }\\r\\n}\\r\\n\",\"keccak256\":\"0xe023ef783f92124288456bd0dcc91ab6842b4c6c5fb65cb857f5a59b2fca3258\",\"license\":\"UNLICENSED\"}},\"version\":1}",
-  "bytecode": "0x6080604052600f60025534801561001557600080fd5b50610562806100256000396000f3fe60806040526004361061004a5760003560e01c80630dc174bd1461004f57806368d0565f146100c55780637647deea146101055780639b2e544a1461011a578063aa25485114610148575b600080fd5b34801561005b57600080fd5b5061009961006a366004610481565b60016020819052600091825260409091208054918101546002909101546001600160a01b039092169160ff1683565b604080516001600160a01b03909416845260208401929092521515908201526060015b60405180910390f35b3480156100d157600080fd5b506100f56100e0366004610481565b60006020819052908152604090205460ff1681565b60405190151581526020016100bc565b610118610113366004610481565b61015d565b005b34801561012657600080fd5b5061013a6101353660046104b1565b6102a9565b6040519081526020016100bc565b34801561015457600080fd5b506101186102cb565b6001600160a01b03811660009081526020819052604090205460ff1615156001146101da5760405162461bcd60e51b815260206004820152602260248201527f50726f746f636f6c206861736e277420696d706c656d656e7420636f6e74726160448201526118dd60f21b60648201526084015b60405180910390fd5b6000341161021c5760405162461bcd60e51b815260206004820152600f60248201526e043616e2774206465706f736974203608c1b60448201526064016101d1565b6000610227346102a9565b905061023482348361033d565b61023d816103ee565b506040805160608101825233815234602080830191825260018385018181526001600160a01b0396871660009081529282905294909120925183546001600160a01b03191695169490941782555192810192909255516002909101805460ff1916911515919091179055565b60006064600254836102bb91906104e0565b6102c591906104f7565b92915050565b3360009081526020819052604090205460ff16156103215760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b5c1b195b595b9d1959606a1b60448201526064016101d1565b336000908152602081905260409020805460ff19166001179055565b60006103498284610519565b90506000846001600160a01b03168260405160006040518083038185875af1925050503d8060008114610398576040519150601f19603f3d011682016040523d82523d6000602084013e61039d565b606091505b50509050806103e75760405162461bcd60e51b815260206004820152601660248201527514995d1d5c9b881c1c9bdd1bd8dbdb0819985a5b195960521b60448201526064016101d1565b5050505050565b604051600090339083908381818185875af1925050503d8060008114610430576040519150601f19603f3d011682016040523d82523d6000602084013e610435565b606091505b505090508061047d5760405162461bcd60e51b815260206004820152601460248201527314995dd85c9908189bdd5b9d1e4819985a5b195960621b60448201526064016101d1565b5050565b60006020828403121561049357600080fd5b81356001600160a01b03811681146104aa57600080fd5b9392505050565b6000602082840312156104c357600080fd5b5035919050565b634e487b7160e01b600052601160045260246000fd5b80820281158282048414176102c5576102c56104ca565b60008261051457634e487b7160e01b600052601260045260246000fd5b500490565b818103818111156102c5576102c56104ca56fea2646970667358221220c4d1e6d3056fa24841dad139044687bd6f8890dca49607bbca925af6fc5df6a564736f6c63430008110033",
-  "deployedBytecode": "0x60806040526004361061004a5760003560e01c80630dc174bd1461004f57806368d0565f146100c55780637647deea146101055780639b2e544a1461011a578063aa25485114610148575b600080fd5b34801561005b57600080fd5b5061009961006a366004610481565b60016020819052600091825260409091208054918101546002909101546001600160a01b039092169160ff1683565b604080516001600160a01b03909416845260208401929092521515908201526060015b60405180910390f35b3480156100d157600080fd5b506100f56100e0366004610481565b60006020819052908152604090205460ff1681565b60405190151581526020016100bc565b610118610113366004610481565b61015d565b005b34801561012657600080fd5b5061013a6101353660046104b1565b6102a9565b6040519081526020016100bc565b34801561015457600080fd5b506101186102cb565b6001600160a01b03811660009081526020819052604090205460ff1615156001146101da5760405162461bcd60e51b815260206004820152602260248201527f50726f746f636f6c206861736e277420696d706c656d656e7420636f6e74726160448201526118dd60f21b60648201526084015b60405180910390fd5b6000341161021c5760405162461bcd60e51b815260206004820152600f60248201526e043616e2774206465706f736974203608c1b60448201526064016101d1565b6000610227346102a9565b905061023482348361033d565b61023d816103ee565b506040805160608101825233815234602080830191825260018385018181526001600160a01b0396871660009081529282905294909120925183546001600160a01b03191695169490941782555192810192909255516002909101805460ff1916911515919091179055565b60006064600254836102bb91906104e0565b6102c591906104f7565b92915050565b3360009081526020819052604090205460ff16156103215760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b5c1b195b595b9d1959606a1b60448201526064016101d1565b336000908152602081905260409020805460ff19166001179055565b60006103498284610519565b90506000846001600160a01b03168260405160006040518083038185875af1925050503d8060008114610398576040519150601f19603f3d011682016040523d82523d6000602084013e61039d565b606091505b50509050806103e75760405162461bcd60e51b815260206004820152601660248201527514995d1d5c9b881c1c9bdd1bd8dbdb0819985a5b195960521b60448201526064016101d1565b5050505050565b604051600090339083908381818185875af1925050503d8060008114610430576040519150601f19603f3d011682016040523d82523d6000602084013e610435565b606091505b505090508061047d5760405162461bcd60e51b815260206004820152601460248201527314995dd85c9908189bdd5b9d1e4819985a5b195960621b60448201526064016101d1565b5050565b60006020828403121561049357600080fd5b81356001600160a01b03811681146104aa57600080fd5b9392505050565b6000602082840312156104c357600080fd5b5035919050565b634e487b7160e01b600052601160045260246000fd5b80820281158282048414176102c5576102c56104ca565b60008261051457634e487b7160e01b600052601260045260246000fd5b500490565b818103818111156102c5576102c56104ca56fea2646970667358221220c4d1e6d3056fa24841dad139044687bd6f8890dca49607bbca925af6fc5df6a564736f6c63430008110033",
+  "numDeployments": 5,
+  "solcInputHash": "91779a42e23b4813b5e6754ac129a2e3",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"exploiter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"victim\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"bounty\",\"type\":\"uint256\"}],\"name\":\"ReturnFund\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"fund\",\"type\":\"uint256\"}],\"name\":\"bountyCalculate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"victim\",\"type\":\"address\"}],\"name\":\"depositExploitedFund\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implement\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"implemented\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/GreyHat.sol\":\"GreyHat\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/GreyHat.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity >=0.8.0 <0.9.0;\\r\\n\\r\\ncontract GreyHat {\\r\\n\\tevent ReturnFund(\\r\\n\\t\\taddress indexed exploiter,\\r\\n\\t\\taddress indexed victim,\\r\\n\\t\\tuint256 amount,\\r\\n\\t\\tuint256 bounty\\r\\n\\t);\\r\\n\\r\\n\\tmapping(address => bool) public implemented;\\r\\n\\tuint256 bountyPortion = 15;\\r\\n\\r\\n\\tfunction implement() public {\\r\\n\\t\\trequire(implemented[msg.sender] == false, \\\"Already implemented\\\");\\r\\n\\t\\timplemented[msg.sender] = true;\\r\\n\\t}\\r\\n\\r\\n\\tfunction depositExploitedFund(address victim) public payable {\\r\\n\\t\\trequire(\\r\\n\\t\\t\\timplemented[victim] == true,\\r\\n\\t\\t\\t\\\"Victim hasn't implement contract\\\"\\r\\n\\t\\t);\\r\\n\\t\\trequire(msg.value > 0, \\\"Can't deposit 0\\\");\\r\\n\\t\\tuint256 bounty = bountyCalculate(msg.value);\\r\\n\\r\\n\\t\\t_returnVictim(victim, msg.value, bounty);\\r\\n\\t\\t_rewardBounty(bounty);\\r\\n\\r\\n\\t\\temit ReturnFund(msg.sender, victim, msg.value, bounty);\\r\\n\\t}\\r\\n\\r\\n\\tfunction bountyCalculate(uint256 fund) public view returns (uint256) {\\r\\n\\t\\treturn (fund * bountyPortion) / 100;\\r\\n\\t}\\r\\n\\r\\n\\tfunction _rewardBounty(uint256 fund) private {\\r\\n\\t\\t(bool s, ) = msg.sender.call{ value: fund }(\\\"\\\");\\r\\n\\t\\trequire(s, \\\"Reward bounty failed\\\");\\r\\n\\t}\\r\\n\\r\\n\\tfunction _returnVictim(\\r\\n\\t\\taddress victim,\\r\\n\\t\\tuint256 fund,\\r\\n\\t\\tuint256 bounty\\r\\n\\t) private {\\r\\n\\t\\tuint256 fundReturn = fund - bounty;\\r\\n\\t\\t(bool s, ) = payable(victim).call{ value: fundReturn }(\\\"\\\");\\r\\n\\t\\trequire(s, \\\"Return victim failed\\\");\\r\\n\\t}\\r\\n\\r\\n\\t// function bargain() returns () {}\\r\\n\\t// I'm not sure this function should be implemented, yet\\r\\n}\\r\\n\",\"keccak256\":\"0x5db692c2e7a2c5187c3a2f81f256d875a417f6d974d28fed4070aa636bad4e47\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x6080604052600f60015534801561001557600080fd5b506104b7806100256000396000f3fe60806040526004361061003f5760003560e01c806368d0565f146100445780637647deea146100895780639b2e544a1461009e578063aa254851146100cc575b600080fd5b34801561005057600080fd5b5061007461005f3660046103d6565b60006020819052908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61009c6100973660046103d6565b6100e1565b005b3480156100aa57600080fd5b506100be6100b9366004610406565b610200565b604051908152602001610080565b3480156100d857600080fd5b5061009c610222565b6001600160a01b03811660009081526020819052604090205460ff1615156001146101535760405162461bcd60e51b815260206004820181905260248201527f56696374696d206861736e277420696d706c656d656e7420636f6e747261637460448201526064015b60405180910390fd5b600034116101955760405162461bcd60e51b815260206004820152600f60248201526e043616e2774206465706f736974203608c1b604482015260640161014a565b60006101a034610200565b90506101ad823483610294565b6101b681610343565b60408051348152602081018390526001600160a01b0384169133917fad8bc86c0e6444de8f013469f48545b05a18516582ac5f661224d0c66d659d9b910160405180910390a35050565b60006064600154836102129190610435565b61021c919061044c565b92915050565b3360009081526020819052604090205460ff16156102785760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b5c1b195b595b9d1959606a1b604482015260640161014a565b336000908152602081905260409020805460ff19166001179055565b60006102a0828461046e565b90506000846001600160a01b03168260405160006040518083038185875af1925050503d80600081146102ef576040519150601f19603f3d011682016040523d82523d6000602084013e6102f4565b606091505b505090508061033c5760405162461bcd60e51b815260206004820152601460248201527314995d1d5c9b881d9a58dd1a5b4819985a5b195960621b604482015260640161014a565b5050505050565b604051600090339083908381818185875af1925050503d8060008114610385576040519150601f19603f3d011682016040523d82523d6000602084013e61038a565b606091505b50509050806103d25760405162461bcd60e51b815260206004820152601460248201527314995dd85c9908189bdd5b9d1e4819985a5b195960621b604482015260640161014a565b5050565b6000602082840312156103e857600080fd5b81356001600160a01b03811681146103ff57600080fd5b9392505050565b60006020828403121561041857600080fd5b5035919050565b634e487b7160e01b600052601160045260246000fd5b808202811582820484141761021c5761021c61041f565b60008261046957634e487b7160e01b600052601260045260246000fd5b500490565b8181038181111561021c5761021c61041f56fea26469706673582212200826e7fe4fd6b7fe2604bad6eaa6ce925b95b38c23ead6b4d7b37c824f6fcf0364736f6c63430008110033",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c806368d0565f146100445780637647deea146100895780639b2e544a1461009e578063aa254851146100cc575b600080fd5b34801561005057600080fd5b5061007461005f3660046103d6565b60006020819052908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61009c6100973660046103d6565b6100e1565b005b3480156100aa57600080fd5b506100be6100b9366004610406565b610200565b604051908152602001610080565b3480156100d857600080fd5b5061009c610222565b6001600160a01b03811660009081526020819052604090205460ff1615156001146101535760405162461bcd60e51b815260206004820181905260248201527f56696374696d206861736e277420696d706c656d656e7420636f6e747261637460448201526064015b60405180910390fd5b600034116101955760405162461bcd60e51b815260206004820152600f60248201526e043616e2774206465706f736974203608c1b604482015260640161014a565b60006101a034610200565b90506101ad823483610294565b6101b681610343565b60408051348152602081018390526001600160a01b0384169133917fad8bc86c0e6444de8f013469f48545b05a18516582ac5f661224d0c66d659d9b910160405180910390a35050565b60006064600154836102129190610435565b61021c919061044c565b92915050565b3360009081526020819052604090205460ff16156102785760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b5c1b195b595b9d1959606a1b604482015260640161014a565b336000908152602081905260409020805460ff19166001179055565b60006102a0828461046e565b90506000846001600160a01b03168260405160006040518083038185875af1925050503d80600081146102ef576040519150601f19603f3d011682016040523d82523d6000602084013e6102f4565b606091505b505090508061033c5760405162461bcd60e51b815260206004820152601460248201527314995d1d5c9b881d9a58dd1a5b4819985a5b195960621b604482015260640161014a565b5050505050565b604051600090339083908381818185875af1925050503d8060008114610385576040519150601f19603f3d011682016040523d82523d6000602084013e61038a565b606091505b50509050806103d25760405162461bcd60e51b815260206004820152601460248201527314995dd85c9908189bdd5b9d1e4819985a5b195960621b604482015260640161014a565b5050565b6000602082840312156103e857600080fd5b81356001600160a01b03811681146103ff57600080fd5b9392505050565b60006020828403121561041857600080fd5b5035919050565b634e487b7160e01b600052601160045260246000fd5b808202811582820484141761021c5761021c61041f565b60008261046957634e487b7160e01b600052601260045260246000fd5b500490565b8181038181111561021c5761021c61041f56fea26469706673582212200826e7fe4fd6b7fe2604bad6eaa6ce925b95b38c23ead6b4d7b37c824f6fcf0364736f6c63430008110033",
   "devdoc": {
     "kind": "dev",
     "methods": {},
@@ -129,7 +126,7 @@
   "storageLayout": {
     "storage": [
       {
-        "astId": 16,
+        "astId": 15,
         "contract": "contracts/GreyHat.sol:GreyHat",
         "label": "implemented",
         "offset": 0,
@@ -137,19 +134,11 @@
         "type": "t_mapping(t_address,t_bool)"
       },
       {
-        "astId": 21,
-        "contract": "contracts/GreyHat.sol:GreyHat",
-        "label": "track",
-        "offset": 0,
-        "slot": "1",
-        "type": "t_mapping(t_address,t_struct(GoodHacker)12_storage)"
-      },
-      {
-        "astId": 24,
+        "astId": 18,
         "contract": "contracts/GreyHat.sol:GreyHat",
         "label": "bountyPortion",
         "offset": 0,
-        "slot": "2",
+        "slot": "1",
         "type": "t_uint256"
       }
     ],
@@ -170,44 +159,6 @@
         "label": "mapping(address => bool)",
         "numberOfBytes": "32",
         "value": "t_bool"
-      },
-      "t_mapping(t_address,t_struct(GoodHacker)12_storage)": {
-        "encoding": "mapping",
-        "key": "t_address",
-        "label": "mapping(address => struct GreyHat.GoodHacker)",
-        "numberOfBytes": "32",
-        "value": "t_struct(GoodHacker)12_storage"
-      },
-      "t_struct(GoodHacker)12_storage": {
-        "encoding": "inplace",
-        "label": "struct GreyHat.GoodHacker",
-        "members": [
-          {
-            "astId": 7,
-            "contract": "contracts/GreyHat.sol:GreyHat",
-            "label": "exploiter",
-            "offset": 0,
-            "slot": "0",
-            "type": "t_address"
-          },
-          {
-            "astId": 9,
-            "contract": "contracts/GreyHat.sol:GreyHat",
-            "label": "amount",
-            "offset": 0,
-            "slot": "1",
-            "type": "t_uint256"
-          },
-          {
-            "astId": 11,
-            "contract": "contracts/GreyHat.sol:GreyHat",
-            "label": "returned",
-            "offset": 0,
-            "slot": "2",
-            "type": "t_bool"
-          }
-        ],
-        "numberOfBytes": "96"
       },
       "t_uint256": {
         "encoding": "inplace",

@@ -107,12 +107,38 @@ const deployedContracts = {
   },
   11155111: {
     GreyHat: {
-      address: "0x3384371AF33358C6120F5594EBD22202E7BA845f",
+      address: "0xA2C67B86934c9a76a11B3285Cf9E4A5056EBE07E",
       abi: [
         {
-          inputs: [],
-          stateMutability: "nonpayable",
-          type: "constructor",
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "exploiter",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "victim",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "bounty",
+              type: "uint256",
+            },
+          ],
+          name: "ReturnFund",
+          type: "event",
         },
         {
           inputs: [
@@ -137,7 +163,7 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "protocol",
+              name: "victim",
               type: "address",
             },
           ],
@@ -166,35 +192,6 @@ const deployedContracts = {
             {
               internalType: "bool",
               name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "track",
-          outputs: [
-            {
-              internalType: "address",
-              name: "exploiter",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "amount",
-              type: "uint256",
-            },
-            {
-              internalType: "bool",
-              name: "returned",
               type: "bool",
             },
           ],

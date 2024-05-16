@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             </Link>
             <div className="divider divider-horizontal">OR</div>
             <div className="grid h-20 m-1 flex-grow card bg-base-300 rounded-box place-items-center hover:bg-info">
-              <Link href="/exploiter">a good hacker</Link>
+              <Link href="/exploiter">a kind hacker</Link>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ contract GreyHat {
 		bool returned;
 	}
 	mapping(address => bool) public implemented;
-	mapping (address => GoodHacker) public track;
+	mapping(address => GoodHacker) public track;
 	uint256 bountyPortion = 15;
 
 	function implement() public {
@@ -24,11 +24,12 @@ contract GreyHat {
 			implemented[protocol] == true,
 			"Protocol hasn't implement contract"
 		);
+		require(msg.value > 0, "Can't deposit 0");
 		uint256 bounty = bountyCalculate(msg.value);
 
 		_returnProtocol(protocol, msg.value, bounty);
 		_rewardBounty(bounty);
-		
+
 		track[protocol] = GoodHacker(msg.sender, msg.value, true);
 	}
 

@@ -9,7 +9,7 @@ import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaf
 const Victim = () => {
   const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("GreyHat");
   const { address: connectedAddress } = useAccount();
-  const [address, setAddress] = useState("");
+  const [hackerAddress, setHackerAddress] = useState("");
   const [message, setMessage] = useState<string>("Hello my dear Hacker");
   const { data: hash, sendTransaction, isPending } = useSendTransaction();
 
@@ -26,7 +26,7 @@ const Victim = () => {
   const sendMessage = async () => {
     try {
       await sendTransaction({
-        to: address,
+        to: hackerAddress,
         data: stringToHex(message),
       });
     } catch (error) {
@@ -60,7 +60,7 @@ const Victim = () => {
           <h1>Let&apos;s give the hacker a heads up!</h1>
 
           <span>Hacker&apos;s address:</span>
-          <AddressInput onChange={setAddress} value={address} placeholder="Input hacker's address" />
+          <AddressInput onChange={setHackerAddress} value={hackerAddress} placeholder="vitalik.eth" />
 
           <span>Message</span>
           <InputBase name="message" placeholder="My dear hacker, . . ." value={message} onChange={setMessage} />

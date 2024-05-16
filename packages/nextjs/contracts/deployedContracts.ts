@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     GreyHat: {
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      address: "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
       abi: [
         {
           inputs: [],
@@ -76,24 +76,6 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "recipient",
-              type: "address",
-            },
-            {
-              internalType: "bytes",
-              name: "message",
-              type: "bytes",
-            },
-          ],
-          name: "invite",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
               name: "",
               type: "address",
             },
@@ -125,7 +107,7 @@ const deployedContracts = {
   },
   11155111: {
     GreyHat: {
-      address: "0x9D1C9fe34143EB7Ed2F23568aCCB5cF753B635Af",
+      address: "0x3384371AF33358C6120F5594EBD22202E7BA845f",
       abi: [
         {
           inputs: [],

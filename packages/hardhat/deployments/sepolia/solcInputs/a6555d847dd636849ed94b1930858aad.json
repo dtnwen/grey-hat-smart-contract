@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/GreyHat.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity >=0.8.0 <0.9.0;\r\n\r\ncontract GreyHat {\r\n\tconstructor() {}\r\n\r\n\t// protocols => exploiter\r\n\tstruct GoodHacker {\r\n\t\taddress exploiter;\r\n\t\tuint256 amount;\r\n\t\tbool returned;\r\n\t}\r\n\tmapping(address => bool) public implemented;\r\n\tmapping(address => GoodHacker) public track;\r\n\tuint256 bountyPortion = 15;\r\n\r\n\tfunction implement() public {\r\n\t\trequire(implemented[msg.sender] == false, \"Already implemented\");\r\n\t\timplemented[msg.sender] = true;\r\n\t}\r\n\r\n\tfunction depositExploitedFund(address protocol) public payable {\r\n\t\trequire(\r\n\t\t\timplemented[protocol] == true,\r\n\t\t\t\"Protocol hasn't implement contract\"\r\n\t\t);\r\n\t\trequire(msg.value > 0, \"Can't deposit 0\");\r\n\t\tuint256 bounty = bountyCalculate(msg.value);\r\n\r\n\t\t_returnProtocol(protocol, msg.value, bounty);\r\n\t\t_rewardBounty(bounty);\r\n\r\n\t\ttrack[protocol] = GoodHacker(msg.sender, msg.value, true);\r\n\t}\r\n\r\n\tfunction bountyCalculate(uint256 fund) public view returns (uint256) {\r\n\t\treturn (fund * bountyPortion) / 100;\r\n\t}\r\n\r\n\tfunction _rewardBounty(uint256 fund) private {\r\n\t\t(bool s, ) = msg.sender.call{ value: fund }(\"\");\r\n\t\trequire(s, \"Reward bounty failed\");\r\n\t}\r\n\r\n\tfunction _returnProtocol(\r\n\t\taddress protocol,\r\n\t\tuint256 fund,\r\n\t\tuint256 bounty\r\n\t) private {\r\n\t\tuint256 fundReturn = fund - bounty;\r\n\t\t(bool s, ) = payable(protocol).call{ value: fundReturn }(\"\");\r\n\t\trequire(s, \"Return protocol failed\");\r\n\t}\r\n\r\n\t// function bargain() returns () {}\r\n\t// I'm not sure this function should be implemented, yet\r\n\r\n\t// function invite(address recipient, bytes calldata message) public payable {\r\n\t// \t(bool s, ) = payable(recipient).call{ value: msg.value }(message);\r\n\t// \trequire(s, \"Send messages failed\");\r\n\t// }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
